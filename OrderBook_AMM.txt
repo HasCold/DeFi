@@ -1,0 +1,40 @@
+
+Order Book -->> Centralized Exchanges
+AMM  -->> Decentralized Exchanges
+
+-------------------------------------------- CEX -----------------------------------------------------
+Centralized Exchanges :- 
+Centralized Exchanges are online platforms or marketPlaces that facilitate the trading of various cryptocurrencies and digital assets. They are called "centralized" becuase they operate as intermediaries that facilitate the exchange of asset between buyers and sellers.
+
+Advantages of CEXs :- 
+. Users donot have to pay gas fees
+. High Liquidity
+. Lower bid/ask spread
+. Fast Trade
+
+Basically, Order Book is the heart of the CEX's.
+Examples :- Binance, Coinbase etc.
+
+
+-------------------------------------------- DEX -----------------------------------------------------
+
+Decentralized Exchanges :-
+Decentralized exchange (DEX's) are platforms or protocols that allow users to trade cryptocurrencies directly with one another without the need for an intermediary or centralized authority.
+
+Advantages of DEXs :- 
+. No gas fee for all transactions
+. Permissionless
+. Custody and Control
+. Security
+
+Basically, Automated Market Maker (AMM) is the heart of the DEX's.
+Examples :- UniSwap, Pancakeswap etc.
+
+
+AMM :- 
+1. Automated : Automated means that the process is carried out by computer process or algorithms wihtout the need for manual intervention. 
+Automated systems can execute task , make decisions and respond to market condition based on predefined rules or parameters
+2. Market : In finance, a "market" refers to a platform or environment where assets are bought and sold
+3. Maker : A "maker" is typically someone who provides liquidity to a liquidity pool. This involves adding their funds in the form of cryptocurrency pairs to the pool.
+
+SO if you understand the concept of AMM which is the heart of DEX's you can easily understand how these DEX's Exchanges work.

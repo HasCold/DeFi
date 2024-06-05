@@ -1,0 +1,48 @@
+---------------------- Liquidity ---------------------
+
+Liquidity :-  Means if we easily convert any asset into the cash is called the liquidity just like our cryptocurrencies asset, stock .
+
+Process of converting cryptocurrencies into the real cash is also a liquid.
+
+Real-Estate is a Illiquid Asset that can be a convertable into the real cash but it is a time taking process.
+
+
+---------------------- Liquidity Pools ---------------------
+
+It is a pool of tokens (usually two different types) locked in a smart contract. These pools facilitate the trading of tokens without the need of any intermediary. e.g. Stable coin like DAI or another cryptocurrency like LINK.
+
+        DEX's                   Liquidity Pool
+
+UniSwap and Sushiswap           Ethereum Network
+    Pancakeswap                    BNB Chain
+
+
+---------------------- Working Of Liquidity Pools ---------------------
+
+. Liquidity Provider Providing Liquidity To Liquidity Pools         ---------------->>>>>>        Liquidity Pool
+
+. AMM to maintain price of the token.
+
+. Liquidity Provider are rewarded for providing liquidity.
+
+
+
+------------------------- Liquidity Pools  VS  AMM ------------------------------
+
+Liquidity Pool :- 
+1. Pool token management
+2. Keeping track of the deposited tokens
+3. Dealing with liquidity and fees
+
+
+AMM :- 
+1. The automated trading functionality
+2. Adjust of token price
+3. Looking to the finance part
+
+But both are closely works together and sometimes overlapping their role.
+
+
+------------------------- Slippage ------------------------------
+
+    Slippage = Expected price of trade - Actual price of trade

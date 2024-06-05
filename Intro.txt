@@ -1,0 +1,20 @@
+DeFi == Decentralized Finance
+
+. We can do the finance part by the decentralized entity instead of the traditional way like centralized authority
+. We can handle the finance part (Borrowing, Saving, Lending, Trading, Yield Farming, Staking, Flash Loans, Insurance) by our smart contract.
+. DeFi is development with Finance.
+
+DeFi Platforms :- Pancakeswap, UniSwap, Aave, Compound and Balancer etc.
+
+DeFi Advantages :- 
+. Pseudonymous
+. Transparency
+. Cost Efficieny (No Middle Man Cut)
+. Open To All
+
+
+DeFi is a billion dollar industry. Alternative of Banks. It is the coding of decentralized bank.
+
+About Maths :-
+ . Learn the Fin-Tech Industry
+ . Read DeFi Contracts

@@ -1,0 +1,14 @@
+--------------------------------------- Types Of AMM ----------------------------------------------
+
+. Constant Product  Used By  UniSwap
+. Constant Sum  Used By  Balancer
+. Curve-based AMM's   Used By  Curve Finance
+. Hybrid AMM's   Used By  Sushiswap
+
+
+=========================== Constant Product =============================================
+
+. This is one of the earliest and most popular AMM models.
+. It is based on the concept of maintaining a constant product of the two assets in a liquidity pool.
+
+All the theoretical and calculation part is written in NOTES.
