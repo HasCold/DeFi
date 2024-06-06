@@ -1,0 +1,10 @@
+---------------------- Pancakeswap Contract ------------------------
+
+There are two types of contract. 
+
+1. Factory Contract :- 
+    Factory Contract has many multiple liquidity pools and it also manages the liquidity pool contract.
+    And Every liquidity pools has different types of tokens
+
+2. Router Contract :-
+    From this contract we can easily fetch the price of tokens.

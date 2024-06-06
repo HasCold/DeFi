@@ -46,3 +46,22 @@ But both are closely works together and sometimes overlapping their role.
 ------------------------- Slippage ------------------------------
 
     Slippage = Expected price of trade - Actual price of trade
+
+
+
+-------------------------- Price Imapct -------------------------
+
+Price Impact:
+
+Price impact occurs because large trades significantly alter the ratio of assets in the pool, thus changing their prices.
+
+Factors Influencing Price Impact
+
+1. Size of the Trade:
+Larger trades typically have a higher price impact because they significantly alter the asset ratios in the pool.
+
+2. Liquidity Depth:
+Pools with more liquidity (i.e., larger reserves of assets) tend to have lower price impact for a given trade size because the ratio of assets changes less dramatically.
+
+3. Asset Volatility:
+Assets with higher volatility may experience more significant price impacts as traders react to price changes.

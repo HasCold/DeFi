@@ -1,0 +1,16 @@
+{
+  "name": "pancakeswap",
+  "version": "1.0.0",
+  "description": "",
+  "main": "PriceFetch.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "node PriceFetch.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "ethers": "^6.13.0"
+  }
+}
