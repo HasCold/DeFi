@@ -1,0 +1,2 @@
+Interfaces :- Interfaces are the templates that we will use in our functions without implementing the actual logic. Instead, the purpose of interfaces is to specify what methods must be present in a contract without providing the implementation details.
+

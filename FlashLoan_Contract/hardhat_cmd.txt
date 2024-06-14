@@ -1,0 +1,3 @@
+Install Hardhat :-  npm i hardhat --D
+
+Initialize Hardhat :- npx hardhat init
