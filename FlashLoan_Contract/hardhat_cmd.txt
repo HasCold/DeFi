@@ -1,3 +1,5 @@
 Install Hardhat :-  npm i hardhat --D
 
 Initialize Hardhat :- npx hardhat init
+
+Run the test script :- npx hardhat test
