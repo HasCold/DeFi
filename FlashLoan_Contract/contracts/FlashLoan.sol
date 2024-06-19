@@ -1,5 +1,5 @@
 // SPDX-License-Identifier: UNLICENSED
-pragma solidity ^0.8.9;
+pragma solidity = 0.6.6;
 
 // Uniswap interfaces and library imports
 import "./interfaces/IERC20.sol";
@@ -9,6 +9,7 @@ import "./interfaces/IUniswapV2Router01.sol";
 import "./interfaces/IUniswapV2Router02.sol";
 import "./libs/UniswapV2Library.sol";
 import "./libs/SafeERC20.sol";
+import "hardhat/console.sol";
 
 contract FlashLoan{
     using SafeERC20 for IERC20;
@@ -39,7 +40,7 @@ contract FlashLoan{
         path[1] = _toToken;
 
         uint amountReq = IUniswapV2Router01(PANCAKE_ROUTER).getAmountsOut(_amountIn, path)[1]; // How much estimated amount of token we can get
-        uint amountReceived = IUniswapV2Router01(PANCAKE_ROUTER).swapExactTokensForTokens(_amountIn, amountReq, path, address(this), deadline)[1] // deadline expected till 1 day 
+        uint amountReceived = IUniswapV2Router01(PANCAKE_ROUTER).swapExactTokensForTokens(_amountIn, amountReq, path, address(this), deadline)[1]; // deadline expected till 1 day 
 
         require(amountReceived > 0, "Transaction Abort");
         return amountReceived;
@@ -49,7 +50,7 @@ contract FlashLoan{
         return IERC20(_address).balanceOf(address(this));
     }
 
-    function initiateArbitrage(address _busdBorrow, uint _amount) {
+    function initiateArbitrage(address _busdBorrow, uint _amount) external {
         // Performing triangular arbitarge between BUSD, CROX and CAKE.
 
         IERC20(BUSD).safeApprove(address(PANCAKE_ROUTER), MAX_INT);  // Basically hum apne pancake router ko complete authority de rahe ha ke wo hamare behalf pr unlimited amount of tokens ko spend krskta ha 
@@ -74,7 +75,7 @@ contract FlashLoan{
         IUniswapV2Pair(pair).swap(amount0Out, amount1Out, address(this), data); // This is an interface for a Uniswap V2 pair contract. It defines the functions that can be called on the pair contract (Liquidity Pool Contract).
     }
 
-    function pancakeCall(address _sender, uint _amount0,_amount1, bytes calldata _data) external {  // we have to call this function within swap function becuase now we have busdBorrowed so we can do the triangular arbitrage
+    function pancakeCall(address _sender, uint _amount0, uint _amount1, bytes calldata _data) external {  // we have to call this function within swap function becuase now we have busdBorrowed so we can do the triangular arbitrage
         // Single Entity calling whole Contract (msg.sender)  -->>  Function initiateArbitrage (msg.sender)  -->> Function pancakeCall  
         address token0 = IUniswapV2Pair(msg.sender).token0(); 
         address token1 = IUniswapV2Pair(msg.sender).token1();
@@ -95,6 +96,8 @@ contract FlashLoan{
         uint trade1Coin = placeTrade(BUSD, CROX, loanAmount);   // Exchange BUSD to CROX
         uint trade2Coin = placeTrade(CROX, CAKE, trade1Coin);   // Exchange CROX to CAKE, trade1Coin = Amount of CROX 
         uint trade3Coin = placeTrade(CAKE, BUSD, trade2Coin);   // Exchange again CAKE to BUSD
+
+        console.log(loanAmount, trade1Coin, trade2Coin, trade3Coin);
 
                                     // 10         15        -->> Profitable scenario
         bool result = checkResult(repayAmount, trade3Coin); 

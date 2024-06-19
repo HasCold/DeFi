@@ -2,4 +2,8 @@ Install Hardhat :-  npm i hardhat --D
 
 Initialize Hardhat :- npx hardhat init
 
+Compile the contract thorugh which the artifact folder generate :- npx hardhat compile
+
 Run the test script :- npx hardhat test
+
+Forking from mainnet :- npx hardhat node --fork https://bsc-dataseed1.binance.org/

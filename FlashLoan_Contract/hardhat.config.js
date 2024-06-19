@@ -1,5 +1,4 @@
 require("@nomicfoundation/hardhat-toolbox");
-require("@nomiclabs/hardhat-waffle");
 
 /** @type import('hardhat/config').HardhatUserConfig */
 module.exports = {
@@ -13,7 +12,7 @@ module.exports = {
   networks: {
     hardhat: {
       forking: { // we have forked the binance smart chain on our local pc and runs on our pc without affecting the mainnet
-        url: "https://bsc-dataseed1.binance.org/",  // Binance RPC nodes because pancakeswap runs on the bsc chain 
+        url: "https://bsc-dataseed3.binance.org/",  // Binance RPC nodes because pancakeswap runs on the bsc chain 
       },
     },
   },
