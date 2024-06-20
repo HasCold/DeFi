@@ -27,7 +27,7 @@ contract FlashLoan{
     uint256 private deadline = block.timestamp + 1 days;
     uint256 private constant MAX_INT = 115792089237316195423570985008687907853269984665640564039457584007913129639935;  // Found on the OpenZepplin library maximum integer in solidity
 
-    function checkResult (uint _repayAmount, uint _acquiredCoin) private returns(bool) {
+    function checkResult (uint _repayAmount, uint _acquiredCoin) private pure returns(bool) {
         return _acquiredCoin > _repayAmount;
     }
 
