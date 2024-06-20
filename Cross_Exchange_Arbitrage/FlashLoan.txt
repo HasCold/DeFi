@@ -1,0 +1,2 @@
+FlashLoan :- A flash loan is a type of decentralized finance (DeFi) lending mechanism that allows users to borrow a certain amount of cryptocurrency without providing any collateral as long as they repay the loan within the same blockchain transaction.
+

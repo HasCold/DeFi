@@ -1,0 +1,6 @@
+Cross Exchange Arbitrage 
+
+. Cross Exchange Arbitrage is a trading strategy that takes advantage of price discrepancies of the same cryptocurrency or asset across different exchanges.
+. Suppose we are doing on between the UniSwap and SushiSwap.
+
+

@@ -1,0 +1,20 @@
+Functions :- 
+
+1. Initiate Arbitrage
+        |
+        |
+2.  pancakeCall  (Settlement for the fees for lending the flashloan or etc)
+        |
+        |
+3.    Trade (Triangular Arbitrage Trade) 
+
+
+
+Through this github repo you can refer the Uniswap interfaces, library and contracts. Basically PancakeSwap forked the UniSwap 
+
+UniSwap Important :- https://github.com/Uniswap/v2-core/blob/master/contracts/
+PancakeSwap Important :- https://github.com/pancakeswap/pancake-swap-core/blob/master/contracts/PancakePair.sol
+Not very much huge difference because pancakeswap made by forking the uniswap.
+
+
+Flash Swap Uniswap :- https://docs.uniswap.org/contracts/v2/guides/smart-contract-integration/using-flash-swaps 
