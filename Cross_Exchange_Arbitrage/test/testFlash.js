@@ -4,9 +4,7 @@ const {fundContract} = require("../utils/fundContract");
 
 const {abi} = require("../artifacts/contracts/interfaces/IERC20.sol/IERC20.json");
 
-const provider = new ethers.JsonRpcProvider("https://bsc-dataseed3.binance.org/");  // Accessing the forked network thorugh which we can interact with the blockchain on locally 
-
-console.log("Ether :-", ethers.parseUnits);
+const provider = new ethers.JsonRpcProvider("https://eth-mainnet.g.alchemy.com/v2/Ji_tl_FZTwFdDAqE3KtS8yDRUXUpaG_d");  // Accessing the forked network through which we can interact with the blockchain on locally 
 
 describe('FlashLoan Contract', () => {
     let FLASHLOAN,
@@ -14,18 +12,17 @@ describe('FlashLoan Contract', () => {
     FUND_AMOUNT,
     initialFundingHuman,
     txArbitrage;
+    
+    const USDC_WHALE = "0xcffad3200574698b78f32232aa9d63eabd290703";  // Means Search on google :- top 10 usdc address so you will get the addresses of  accounts who are holding large amount of usdc. So in this case we can get the dummy balance of this particular address
+    const USDC = "0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48";
+    const LINK = "0x514910771AF9Ca656af840dff83E8264EcF986CA";
+    
+    const DECIMALS = IERC20(USDC).decimals();  // we are dealing with usdc and there decimal places is 6
 
-    const DECIMALS = 18;  // 1 ether/eth = 10^18 wei  and  1 ether/eth = 10^9 gwei
-
-  const BUSD_WHALE = "0xf977814e90da44bfa03b6295a0616a897441acec";  // Means Search on google :- top 10 busd address so you will get the addresses of 0xf977814e90da44bfa03b6295a0616a897441acec accounts who are holding large amount of busd. So in this case we can get the dummy balance of this particular address
-  const BUSD = "0xe9e7CEA3DedcA5984780Bafc599bD69ADd087D56";
-  const CAKE = "0x0E09FaBB73Bd3Ade0a17ECC321fD13a19e81cE82";
-  const CROX = "0x2c094F5A7D1146BB93850f629501eB749f6Ed491";
-
-  const busdInstance = new ethers.Contract(BUSD, abi, provider);
+  const usdcInstance = new ethers.Contract(USDC, abi, provider);
 
     beforeEach(async () => {
-        const whale_balance = await provider.getBalance(BUSD_WHALE);
+        const whale_balance = await provider.getBalance(USDC_WHALE);
         console.log("Whale Balance :- ", Number(whale_balance));
         expect(whale_balance).not.equal("0");
 
@@ -42,8 +39,8 @@ describe('FlashLoan Contract', () => {
     
     // Fund the smart contract
         await fundContract(
-          busdInstance,
-          BUSD_WHALE,
+          usdcInstance,
+          USDC_WHALE,
           FLASHLOAN.target,
           initialFundingHuman
         )
@@ -52,22 +49,22 @@ describe('FlashLoan Contract', () => {
 
     describe("Arbitrage Execution", () => {
       it('Ensures the contract is funded', async () => {
-          const flashLoanBalance = await FLASHLOAN.getBalanceOfToken(BUSD);
+          const flashLoanBalance = await FLASHLOAN.getBalanceOfToken(USDC);
           const flashLoanBalanceHuman = ethers.formatUnits(flashLoanBalance, DECIMALS);
 
           expect(Number(flashLoanBalanceHuman)).equal(Number(initialFundingHuman));
       });
 
       it("Execute the Arbitrage", async () => {
-        txArbitrage = await FLASHLOAN.initiateArbitrage(BUSD, BORROW_AMOUNT);
+        txArbitrage = await FLASHLOAN.initiateArbitrage(USDC, BORROW_AMOUNT);
         assert(txArbitrage); // Console what we receive from txArbitrage
       
         // Print balances
-      const contractBalanceBUSD = await FLASHLOAN.getBalanceOfToken(BUSD);
-      const formattedBalBUSD = Number(
-        ethers.formatUnits(contractBalanceBUSD, DECIMALS)
+      const contractBalanceUSDC = await FLASHLOAN.getBalanceOfToken(USDC);
+      const formattedBalUSDC = Number(
+        ethers.formatUnits(contractBalanceUSDC, DECIMALS)
       );
-      console.log("Balance of BUSD: " + formattedBalBUSD);
+      console.log("Balance of USDC: " + formattedBalUSDC);
 
       const contractBalanceCROX = await FLASHLOAN.getBalanceOfToken(CROX);
       const formattedBalCROX = Number(

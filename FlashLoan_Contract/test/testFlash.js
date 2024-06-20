@@ -6,8 +6,6 @@ const {abi} = require("../artifacts/contracts/interfaces/IERC20.sol/IERC20.json"
 
 const provider = new ethers.JsonRpcProvider("https://bsc-dataseed3.binance.org/");  // Accessing the forked network thorugh which we can interact with the blockchain on locally 
 
-console.log("Ether :-", ethers.parseUnits);
-
 describe('FlashLoan Contract', () => {
     let FLASHLOAN,
     BORROW_AMOUNT,
