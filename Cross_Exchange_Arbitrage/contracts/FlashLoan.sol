@@ -100,13 +100,15 @@ contract FlashLoan{
         uint fee = ((amount * 3)/997) + 1;
         uint repayAmount = amount + fee;
         uint loanAmount = _amount0 > 0 ? _amount0 : _amount1;  // Pay the BUSD token back
+        console.log("Loan Amount -------------->", loanAmount);
+        console.log("Repay Amount -------------->", repayAmount);
 
         // Triangular Arbitrage
         uint trade1Coin = placeTrade(USDC, LINK, loanAmount, UNISWAP_FACTORY, UNISWAP_ROUTER);   // Exchange USDC to LINK on UniSwap DEX
-        console.log("Trade 1 Coin :- ", trade1Coin);
+        console.log("Trade 1 Coins of LINK :- ", trade1Coin);
 
         uint trade2Coin = placeTrade(LINK, USDC, trade1Coin, SUSHI_FACTORY, SUSHI_ROUTER);   // Exchange LINK to USDC on SushiSwap DEX, trade1Coin = Amount of LINK token 
-        console.log("Trade 2 Coin :- ", trade2Coin);
+        console.log("Trade 2 Coins of USDC :- ", trade2Coin);
 
                                     // 10         15        -->> Profitable scenario
         bool profCheck = checkResult(repayAmount, trade2Coin); 
@@ -114,9 +116,13 @@ contract FlashLoan{
 
         // Pay Myself
         IERC20 otherToken = IERC20(USDC);
-        otherToken.transfer(myAddress, trade2Coin - repayAmount);
+        bool success = otherToken.transfer(myAddress, trade2Coin - repayAmount);
+        require(success, "Token transfer failed");
+
+        console.log("Profit Balance in USDC token $", IERC20(USDC).balanceOf(myAddress));
 
         // Pay Loan Back
         IERC20(tokenBorrow).transfer(pair, repayAmount);
     }
+
 }

@@ -1,7 +1,7 @@
 const { network, ethers } = require("hardhat");
 
-const fundToken = async (contract, sender, recepient, amount) => {
-  const FUND_AMOUNT = ethers.parseUnits(amount, 18);
+const fundToken = async (contract, sender, recepient, amount, decimals) => {
+  const FUND_AMOUNT = ethers.parseUnits(amount, decimals);
   console.log("FUND: -", Number(FUND_AMOUNT))
 
   // fund erc20 token to the contract
@@ -12,14 +12,14 @@ const fundToken = async (contract, sender, recepient, amount) => {
   await contractSigner.transfer(recepient, FUND_AMOUNT); // Transfers FUND_AMOUNT tokens from the whale account to the recipient using the connected contract instance.
 };
 
-const fundContract = async (contract, sender, recepient, amount) => {
+const fundContract = async (contract, sender, recepient, amount, decimals) => {
   await network.provider.request({
     method: "hardhat_impersonateAccount",  // Kisi account pr apka temporarily control hona 
     params: [sender],
   });
 
   // fund baseToken to the contract
-  await fundToken(contract, sender, recepient, amount);
+  await fundToken(contract, sender, recepient, amount, decimals);
   await network.provider.request({
     method: "hardhat_stopImpersonatingAccount",
     params: [sender],

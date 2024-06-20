@@ -32,10 +32,10 @@ describe('FlashLoan Contract', () => {
         FLASHLOAN = await FlashLoan.deploy(); // Now deploy the instance of flashloan contract into Hardhat environment        
         console.log("FlashLoan contract address:", FLASHLOAN.target);
 
-        const borrowAmountHuman = "1";
+        const borrowAmountHuman = "1";  // 1 busd borrow as a flashLoan by liquidity pool
         BORROW_AMOUNT = ethers.parseUnits(borrowAmountHuman, DECIMALS);
 
-        initialFundingHuman = "100";  // 100 busd
+        initialFundingHuman = "100";  // 100 busd initiall funding to a smart contract by the whale address
         FUND_AMOUNT = ethers.parseUnits(initialFundingHuman, DECIMALS);
     
     // Fund the smart contract

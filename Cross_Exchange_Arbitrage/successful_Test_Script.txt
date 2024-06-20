@@ -1,0 +1,19 @@
+
+  FlashLoan Contract
+    Arbitrage Execution
+Whale Balance :-  2.5643732783341135e+22
+FlashLoan contract address: 0x64079a2Edd1104a2323E2b732A1244BCE011B1F5
+FUND: - 200000000
+      ✔ Ensures the contract is funded (153ms)
+Whale Balance :-  2.5643732783341135e+22
+FlashLoan contract address: 0x0Deeb4b6492C1a55Bb7C0555AaFf65fF6dC424B2
+FUND: - 200000000
+Trade 1 Coins of LINK :-  241016421629098775
+Trade 2 Coins of USDC :-  3483398
+Profit Balance in USDC token $ 123317
+Balance of USDC: 200
+Balance of LINK: 0.0
+      ✔ Execute the Arbitrage (23670ms)
+
+
+  2 passing (48s)
